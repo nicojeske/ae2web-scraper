@@ -1,0 +1,24 @@
+﻿services:
+  influxdb2:
+    image: influxdb:2
+    ports:
+      - 8428:8086
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ae2
+      DOCKER_INFLUXDB_INIT_PASSWORD: ae2ae2ae2ae2
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ae2ae2ae2ae2ae2
+      DOCKER_INFLUXDB_INIT_ORG: nicojeske
+      DOCKER_INFLUXDB_INIT_BUCKET: ae2-metrics
+    volumes:
+      - "./influx/data:/var/lib/influxdb2"
+      - "./influx/config:/etc/influxdb2"
+  worker:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - InfluxDB__Url=http://influxdb2:8086
+      - InfluxDB__Token=ae2ae2ae2ae2ae2
+      - InfluxDB__Org=nicojeske
+      - InfluxDB__Bucket=ae2-metrics

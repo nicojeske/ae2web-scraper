@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-AE2DataCollector-2a71a63c-b1f5-49ad-af1d-3d85d411123e</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="InfluxDB.Client" Version="4.18.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+    <PackageReference Include="OpenTelemetry.Api" Version="1.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".github\workflows\changelog.yaml" />
+    <Content Include=".github\workflows\docker-image.yml" />
+  </ItemGroup>
+</Project>
