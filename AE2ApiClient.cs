@@ -47,7 +47,7 @@ public class Ae2ApiClient
 public record Item(
     [property: JsonPropertyName("itemid")] string ItemId,
     [property: JsonPropertyName("itemname")] string ItemName,
-    [property: JsonPropertyName("quantity")] int Quantity,
+    [property: JsonPropertyName("quantity")] double Quantity,
     [property: JsonPropertyName("craftable")] bool Craftable,
     [property: JsonPropertyName("hashcode")] int HashCode);
 
